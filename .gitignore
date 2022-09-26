@@ -1,1 +1,8 @@
+# Python venvs
 .venv/
+
+# Python caches
+__pycache__/
+
+# sqlite
+**.sqlite3
