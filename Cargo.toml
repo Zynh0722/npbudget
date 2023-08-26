@@ -7,8 +7,10 @@ edition = "2021"
 build = "src/build.rs"
 
 [dependencies]
-ructe = "0.17.0"
-
+ructe.workspace = true
 
 [build-dependencies]
+ructe.workspace = true
+
+[workspace.dependencies]
 ructe = "0.17.0"
