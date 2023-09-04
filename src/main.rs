@@ -4,11 +4,15 @@ use axum::{
     Router,
 };
 
+use tower_http::services::ServeDir;
+
 include!(concat!(env!("OUT_DIR"), "/templates.rs"));
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().route("/", get(hello_world));
+    let app = Router::new()
+        .route("/", get(hello_world))
+        .fallback_service(ServeDir::new("dist"));
 
     // run it with hyper on localhost:3000
     axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
