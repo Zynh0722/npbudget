@@ -1,5 +1,8 @@
-use axum::response::{Html, IntoResponse};
-use axum::{routing::get, Router};
+use axum::{
+    response::{Html, IntoResponse},
+    routing::get,
+    Router,
+};
 
 include!(concat!(env!("OUT_DIR"), "/templates.rs"));
 
