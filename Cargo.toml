@@ -12,4 +12,5 @@ ructe.workspace = true
 ructe.workspace = true
 
 [workspace.dependencies]
-ructe = "0.17.0"
+# ructe = "0.17.0"
+ructe = { git = "https://github.com/Zynh0722/ructe.git", branch = "rust-analyzer-workaround" }

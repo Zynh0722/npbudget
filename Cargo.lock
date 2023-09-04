@@ -67,8 +67,7 @@ dependencies = [
 [[package]]
 name = "ructe"
 version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9b0a930679d54e46fa4e66be3d9a333026da04d2b659e42aab4dfd1586452815"
+source = "git+https://github.com/Zynh0722/ructe.git?branch=rust-analyzer-workaround#377ee31c4c6d3840bfe7737a98b8041bb04befd0"
 dependencies = [
  "base64",
  "bytecount",
