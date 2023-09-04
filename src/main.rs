@@ -1,7 +1,21 @@
+use axum::response::{Html, IntoResponse};
+use axum::{routing::get, Router};
+
 include!(concat!(env!("OUT_DIR"), "/templates.rs"));
 
-fn main() {
-    let mut buf = Vec::new();
+#[tokio::main]
+async fn main() {
+    let app = Router::new().route("/", get(hello_world));
+
+    // run it with hyper on localhost:3000
+    axum::Server::bind(&"0.0.0.0:3000".parse().unwrap())
+        .serve(app.into_make_service())
+        .await
+        .unwrap();
+}
+
+async fn hello_world() -> impl IntoResponse {
+    let mut buf = Vec::with_capacity(512);
     templates::hello_args_html(&mut buf, "World").unwrap();
-    println!("{}", String::from_utf8(buf).unwrap());
+    Html(buf)
 }
